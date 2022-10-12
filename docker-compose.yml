@@ -7,7 +7,7 @@ services:
     volumes:
         - ./sale1h-api/:/app/
         - /app/node_modules
-    command: npm run start
+    command: npm run dev
     networks:
       - common
     environment:
