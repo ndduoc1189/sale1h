@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  api:
+    container_name: sale1h-api
+    build: ./sale1h-api
+    ports:
+      - 8901:8901
+    volumes:
+      - ./sale1h-api:/app/sale1h-api
+    command: npm run dev
+    networks:
+      - common
+    environment:
+      PORT: 8901
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - redis
+  web:
+    container_name: sale1h-web
+    build: ./sale1h-web
+    ports:
+      - 8901:8901
+    volumes:
+      - ./sale1h-web:/app/sale1h-web
+    command: npm start
+    networks:
+      - common
+    environment:
+      PORT: 8901
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - .data/redis:/data
+    restart: unless-stopped
+    networks:
+      - common
+  nginx:
+    depends_on:
+      - api
+      - web
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - common
+networks:
+  common:

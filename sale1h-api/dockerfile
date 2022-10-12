@@ -1,0 +1,6 @@
+FROM node:16
+WORKDIR /app/sale1h-api
+COPY . .
+RUN npm install -force
+EXPOSE 8901
+CMD ["npm", "dev"]

@@ -1,0 +1,6 @@
+FROM node:16
+WORKDIR /app/sale1h-web
+COPY . .
+RUN npm install -force
+EXPOSE 8902
+CMD ["npm", "start"]
