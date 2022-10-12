@@ -4,15 +4,13 @@ services:
   api:
     container_name: sale1h-api
     build: ./sale1h-api
-    ports:
-      - 8901:8901
     volumes:
-      - ./sale1h-api:/app/sale1h-api
+      - ./sale1h-api:/app
     command: npm run dev
     networks:
       - common
     environment:
-      PORT: 8901
+      PORT: 8902
       REDIS_HOST: redis
       REDIS_PORT: 6379
     depends_on:
@@ -20,15 +18,11 @@ services:
   web:
     container_name: sale1h-web
     build: ./sale1h-web
-    ports:
-      - 8901:8901
-    volumes:
-      - ./sale1h-web:/app/sale1h-web
-    command: npm start
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     networks:
       - common
-    environment:
-      PORT: 8901
   redis:
     image: redis:alpine
     ports:

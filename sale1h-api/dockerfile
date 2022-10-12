@@ -1,6 +1,7 @@
-FROM node:16
-WORKDIR /app/sale1h-api
-COPY . .
+FROM node:18-alpine3.15
+WORKDIR /app
+COPY ./package.json ./
 RUN npm install -force
+COPY . .
 EXPOSE 8901
-CMD ["npm", "dev"]
+CMD ["npm", "run", "start"]
