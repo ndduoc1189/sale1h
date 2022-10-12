@@ -4,6 +4,9 @@ services:
   api:
     container_name: sale1h-api
     build: ./sale1h-api
+    volumes:
+        - ./sale1h-api/:/app/
+        - /app/node_modules
     command: npm run start
     networks:
       - common
