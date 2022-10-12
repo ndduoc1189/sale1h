@@ -4,4 +4,4 @@ COPY package*.json ./
 RUN npm i -f
 COPY . .
 EXPOSE 8901
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
