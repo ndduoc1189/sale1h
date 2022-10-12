@@ -20,7 +20,8 @@ const productServices = {
         headers:{
           ...config.requestHeader,
           'origin': 'https://shopee.vn/',
-          'referer':'https://shopee.vn/'
+          'referer':'https://shopee.vn/',
+          'af-ac-enc-dat': 'AAcyLjMuMi00AAABg8tFwxoAAAV4AWMAAAAAAAAAALUc1tcRcRT7jqz5xKHtj2sHwQV2IZUPZAOROlKc9FD38vpl95cqlWoElPRl6ekEWeJsUpveFmuQcKULOcNiTq7hKZUzFcmn7nW9/iudAovi3Q4KeZFjs4yw8pGWNnYQjtmnppZkfx9s4w5mdq+xn6n9CtBqmKNfuOknkf9BfqF7D/jqupFjs4yw8pGWNnYQjtmnppYiTFA3l4BAnECQHizWWB5Bb9DoE6OaqH55KojeQJdb9OxiHoOcK64Zl+JyMvfFP6i1oqizM36ddw9ghS0d9f9XT7RazJJrfmukPJIkQHwgJ6q1o+e9swlOXeHYU3fFEYMwJbBSwyM33WBjQz/c+hgNnl5tGewTftogkS7fH9OlX7wdnYZMLobLy6kq1rUCiaUMml0A5VNqRu9pdO+GMYb46uiArzHn3MpUnxUzSoqzMF/RO8v82wMJlKITcXQRGwlCTo/s9py18OXJkGYIvqhmng+KGaRyct5iom4EGipScQ=='
         }
       }
     );
