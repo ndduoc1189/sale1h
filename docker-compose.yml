@@ -6,7 +6,7 @@ services:
     build: ./sale1h-api
     volumes:
       - ./sale1h-api:/app
-    command: npm run dev
+    command: npm run start
     networks:
       - common
     environment:
@@ -38,7 +38,7 @@ services:
       - web
     restart: always
     build:
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
       context: ./nginx
     ports:
       - "80:80"
