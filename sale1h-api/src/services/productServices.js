@@ -25,20 +25,27 @@ const productServices = {
         }
       }
     );
-    return data.items.map((p, index) => ({
-      itemid: p.item_basic.itemid,
-      source_type: 'shopee',
-      shopid: p.shopid,
-      name: p.item_basic.name,
-      image: 'https://cf.shopee.vn/file/' + p.item_basic.image,
-      price: p.item_basic.price,
-      price_before_discount: p.item_basic.price_before_discount,
-      historical_sold: p.item_basic.historical_sold,
-      shop_location: p.item_basic.shop_location,
-      rating_star: p.item_basic.item_rating.rating_star,
-      itemUrl: 'https://shopee.vn/'+encodeURI(p.item_basic.name)+'-i.'+p.shopid+'.'+p.item_basic.itemid,
-      sortId: index,
-    }));
+    if(data.items && data.items.length>0)
+    {
+      return data.items.map((p, index) => ({
+        itemid: p.item_basic.itemid,
+        source_type: 'shopee',
+        shopid: p.shopid,
+        name: p.item_basic.name,
+        image: 'https://cf.shopee.vn/file/' + p.item_basic.image,
+        price: p.item_basic.price,
+        price_before_discount: p.item_basic.price_before_discount,
+        historical_sold: p.item_basic.historical_sold,
+        shop_location: p.item_basic.shop_location,
+        rating_star: p.item_basic.item_rating.rating_star,
+        itemUrl: 'https://shopee.vn/'+encodeURI(p.item_basic.name)+'-i.'+p.shopid+'.'+p.item_basic.itemid,
+        sortId: index,
+      }));
+    }else{
+      console.log('ShoppeDataError',data)
+      return [];
+    }
+    
   },
 
   tikiProducts: async (params) => {
