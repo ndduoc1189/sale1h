@@ -33,6 +33,15 @@ services:
     restart: unless-stopped
     networks:
       - common
+  db:
+    image: mongo
+    volumes:
+      - .data/db:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+    networks:
+      - common
   nginx:
     depends_on:
       - api
